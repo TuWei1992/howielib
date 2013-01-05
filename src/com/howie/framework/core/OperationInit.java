@@ -26,10 +26,10 @@ public interface OperationInit {
 	 * Do something about the initialization operation of view ,include some
 	 * findViewById(),setOnClickListener(),and so on.
 	 */
-	void initViews();
+	void onInitViews();
 
 	/**
 	 * Do something about the initialization operation of data
 	 */
-	void initData();
+	void onInitData();
 }

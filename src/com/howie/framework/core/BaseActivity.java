@@ -42,8 +42,8 @@ public abstract class BaseActivity extends Activity implements OperationInit {
 	public void setContentView(int layoutResID) {
 		super.setContentView(layoutResID);
 
-		initViews();
-		initData();
+		onInitViews();
+		onInitData();
 	}
 
 	/**
