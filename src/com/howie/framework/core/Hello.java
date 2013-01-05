@@ -15,10 +15,12 @@
  */
 package com.howie.framework.core;
 
+import android.app.Activity;
+
 /**
  * @author howieceo@163.com
  * @time Jan 5, 2013 10:59:00 AM
  */
-public class Hello {
+public class Hello extends Activity {
 
 }
