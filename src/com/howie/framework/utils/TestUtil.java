@@ -13,12 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.howie.framework.core;
+package com.howie.framework.utils;
+
 
 /**
+ * 
  * @author howieceo@163.com
- * @time Jan 5, 2013 11:54:40 AM
+ * @time Dec 27, 2012 5:33:45 PM
  */
-public class Test {
+public class TestUtil {
+	public static double begin() {
+		LogUtil.e("-----------Begin------------");
+		return System.currentTimeMillis();
+	}
 
+	public static void end(double begin) {
+		LogUtil.e("----End-----cost time:"
+				+ (System.currentTimeMillis() - begin) / 1000.0 + "s");
+		return;
+	}
 }

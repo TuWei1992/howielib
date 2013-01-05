@@ -13,31 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.howie.framework.utils;
+package com.howie.framework.core;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import android.app.Application;
+import android.content.Context;
 
 /**
- * Provides operations with Stream
- * 
  * @author howieceo@163.com
- * @time Nov 9, 2012 2:30:02 PM
+ * @time Jan 5, 2013 2:12:41 PM
  */
-public final class StreamUtils {
-	private static final int BUFFER_SIZE = 8 * 1024; // 8 KB
+public class BaseApplication extends Application {
+	private static Context context;
 
-	public static void copyStream(InputStream is, OutputStream os)
-			throws IOException {
-		byte[] bytes = new byte[BUFFER_SIZE];
+	@Override
+	public void onCreate() {
+		super.onCreate();
 
-		while (true) {
-			int count = is.read(bytes, 0, BUFFER_SIZE);
-			if (count == -1) {
-				break;
-			}
-			os.write(bytes, 0, count);
-		}
+		context = getApplicationContext();
+	}
+
+	public static Context getContext() {
+		return context;
 	}
 }

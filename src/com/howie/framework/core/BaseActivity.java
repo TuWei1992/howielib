@@ -1,4 +1,20 @@
+/**
+ * Copyright (c) 2012-2013, Howie Lau 刘文豪.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.howie.framework.core;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -177,6 +193,9 @@ public abstract class BaseActivity extends Activity implements OperationInit {
 	 * @param positiveBtnContent
 	 *            allow String type,int Resource type. if is null,show dialog
 	 *            without PositiveButton
+	 * @param neutralBtnContent
+	 *            allow String type,int Resource type. if is null,show dialog
+	 *            without NeutralButton
 	 * @param negativeBtnContent
 	 *            allow String type,int Resource type. if is null,show dialog
 	 *            without NegativeButton
@@ -187,7 +206,8 @@ public abstract class BaseActivity extends Activity implements OperationInit {
 	 */
 	public void showDialog(Object title, Object message, Object items,
 			boolean[] checkedItems, Object positiveBtnContent,
-			Object negativeBtnContent, OnClickListener onClickListener,
+			Object neutralBtnContent, Object negativeBtnContent,
+			OnClickListener onClickListener,
 			OnMultiChoiceClickListener onMultiChoiceClickListener) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -252,6 +272,16 @@ public abstract class BaseActivity extends Activity implements OperationInit {
 						onClickListener);
 			} else {
 				builder.setPositiveButton((Integer) positiveBtnContent,
+						onClickListener);
+			}
+		}
+
+		if (neutralBtnContent != null) {
+			if (neutralBtnContent instanceof String) {
+				builder.setNeutralButton(String.valueOf(neutralBtnContent),
+						onClickListener);
+			} else {
+				builder.setNeutralButton((Integer) neutralBtnContent,
 						onClickListener);
 			}
 		}
