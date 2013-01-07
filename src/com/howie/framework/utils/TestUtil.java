@@ -15,21 +15,26 @@
  */
 package com.howie.framework.utils;
 
-
 /**
+ * 
+ * long time = TestUtil.begin("test example"); 
+ * ......
+ * ......
+ * TestUtil.end(time);
  * 
  * @author howieceo@163.com
  * @time Dec 27, 2012 5:33:45 PM
  */
 public class TestUtil {
-	public static double begin() {
+	public static long begin(String tag) {
+		LogUtil.e(tag);
 		LogUtil.e("-----------Begin------------");
 		return System.currentTimeMillis();
 	}
 
-	public static void end(double begin) {
-		LogUtil.e("----End-----cost time:"
-				+ (System.currentTimeMillis() - begin) / 1000.0 + "s");
-		return;
+	public static void end(long begin) {
+		LogUtil.e("cost time:" + (System.currentTimeMillis() - begin) / 1000.0
+				+ "s");
+		LogUtil.e("------------End-------------");
 	}
 }
