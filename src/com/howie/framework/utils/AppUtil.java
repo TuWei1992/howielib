@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
@@ -74,5 +75,59 @@ public class AppUtil {
 	public static float px2dip(Context context, double pxValue) {
 		float scale = context.getResources().getDisplayMetrics().density;
 		return (float) pxValue / scale + 0.5f;
+	}
+
+	/**
+	 * Android 2.2 Api level 8
+	 * 
+	 * @return
+	 */
+	public static boolean hasFroyo() {
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO;
+	}
+
+	/**
+	 * Android 2.3 Api level 9
+	 * 
+	 * @return
+	 */
+	public static boolean hasGingerbread() {
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
+	}
+
+	/**
+	 * Android 2.3.3 Api level 10
+	 * 
+	 * @return
+	 */
+	public static boolean hasGingerbreadMR1() {
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD_MR1;
+	}
+
+	/**
+	 * Android 3.0 Api level 11
+	 * 
+	 * @return
+	 */
+	public static boolean hasHONEYCOMB() {
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
+	}
+
+	/**
+	 * Android 4.0 Api level 14
+	 * 
+	 * @return
+	 */
+	public static boolean hasIceCreamSandwich() {
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+	}
+
+	/**
+	 * Android 4.1 Api level 16
+	 * 
+	 * @return
+	 */
+	public static boolean hasJellyBean() {
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
 	}
 }
